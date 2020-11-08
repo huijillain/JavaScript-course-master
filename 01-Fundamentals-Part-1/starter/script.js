@@ -326,6 +326,46 @@ if (day1 === 'monday') {
     console.log('Not a valid day!');
 }
 
+// Statements and Expressions
+if (23 > 10) {
+    const str = '23 is bigger';
+}
+
+const me = 'Sky';
+console.log(`I'm ${2020 - 1990} years old ${me}.`);
+
+// The Conditional (Ternary) Operator
+/*
+The conditional (ternary) operator is the only JavaScript operator that takes three operands: a condition followed by a question mark ( ? ), then an expression to execute if the condition is truthy followed by a colon ( : ), and finally the expression to execute if the condition is falsy.
+*/
+const age4 = 35;
+// age4 >= 18 ? console.log('I like to drink wine 🍷') : console.log('I like to drink juice 🥤');
+
+// const drink = age4 >= 18 ? 'wine 🍷 ' : 'juice 🥤 ';
+// console.log(drink);
+
+console.log(`I like to drink ${age4 >= 18 ? 'wine 🍷 ' : 'juice 🥤 '}.`); // it is an express inside {}
+
+/* Coding Challenge #4
+Steven wants to build a very simple tip calculator for whenever he goes eating in a restaurant. In his country, it's usual to tip 15% if the bill value is between 50 and 300. If the value is different, the tip is 20%.
+Your tasks:
+1. Calculate the tip, depending on the bill value. Create a variable called 'tip' for this. It's not allowed to use an if/else statement 😅 (If it's easier for you, you can start with an if/else statement, and then try to convert it to a ternary operator!)
+2. Print a string to the console containing the bill value, the tip, and the final value (bill + tip). Example: “The bill was 275, the tip was 41.25, and the total value 316.25”
+Test data:
+Data 1: Test for bill values 275, 40 and 430
+Hints:
+1, To calculate 20% of a value, simply multiply it by 20/100 = 0.2
+2, Value X is between 50 and 300, if it's >= 50 && <= 300 😉
+*/
+const bill = 40;
+const tip = bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// const totalValue = bill + tip;
+console.log(`The bill was ${bill}, the tip was ${tip}, and the total value is ${bill + tip}`);
+
+
+
+
+
 
 
 
