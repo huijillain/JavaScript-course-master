@@ -67,6 +67,7 @@ const calcTempAmplitudeNew = function (t1, t2) {
     const curTemp = temps[i];
     if (typeof curTemp !== 'number') continue;
 
+    debugger; //another way to DEBUG by adding this code
     if (curTemp > max) max = curTemp;
     if (curTemp < min) min = curTemp;
   }
