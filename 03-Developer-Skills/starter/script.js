@@ -75,3 +75,29 @@ const calcTempAmplitudeNew = function (t1, t2) {
 };
 const amplitudeNew = calcTempAmplitudeNew([3, 5, 1], [9, 0, 5]);
 console.log(amplitudeNew);
+
+//The Debugging process
+//Identify (testing software...)
+//FIND
+//FIX
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temp',
+    unit: 'celsius',
+    //FIX
+    value: Number(prompt('Degrees celsius:')),
+  };
+
+  // FIND
+  console.table(measurement);
+  //   console.log(measurement.value);
+  //   console.warn(measurement.value);
+  //   console.error(measurement.value);
+
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+// Identify
+console.log(measureKelvin());
+//resule is 10273 (10 + 273)
+//prompt always return a string value
