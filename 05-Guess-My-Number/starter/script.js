@@ -4,14 +4,14 @@
 // document object model, connection between HTML & JavaScript
 //WEB APIs - Appication Programming Interface
 
-console.log(document.querySelector('.message').textContent);
-document.querySelector('.message').textContent = 'Correct number!';
+// console.log(document.querySelector('.message').textContent);
+// document.querySelector('.message').textContent = 'Correct number!';
 
-document.querySelector('.number').textContent = 13;
-document.querySelector('.score').textContent = 10;
+// document.querySelector('.number').textContent = 13;
+// document.querySelector('.score').textContent = 10;
 
-document.querySelector('.guess').value = 23;
-console.log(document.querySelector('.guess').value);
+// document.querySelector('.guess').value = 23;
+// console.log(document.querySelector('.guess').value);
 
 // Click Events
 
@@ -21,6 +21,7 @@ console.log(document.querySelector('.guess').value);
 
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
+let highscore = 0;
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
@@ -38,6 +39,12 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('body').style.backgroundColor = '#60b347';
 
     document.querySelector('.number').style.width = '30rem';
+
+    // add Highscore function
+    if (score > highscore) {
+      highscore = score;
+      document.querySelector('.highscore').textContent = highscore;
+    }
 
     // When guess is too high
   } else if (guess > secretNumber) {
@@ -74,6 +81,7 @@ Your tasks:
 */
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
+
   secretNumber = Math.trunc(Math.random() * 20) + 1;
 
   // reset each value
