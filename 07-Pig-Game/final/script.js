@@ -13,10 +13,12 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
+// declare these 4 outside of function init
 let scores, currentScore, activePlayer, playing;
 
 // Starting conditions
 const init = function () {
+  //reassign variable value
   scores = [0, 0];
   currentScore = 0;
   activePlayer = 0;
