@@ -26,3 +26,44 @@ function calcAge(birthYear) {
 
 const firstName = 'Sky';
 calcAge(1990);
+
+// Hoisting and TDZ in Practice
+console.log(me);
+// console.log(job);  error : cannot access 'job before initialization
+// console.log(year);
+
+var me = 'Sky';
+let job = 'Designer';
+const year = 1991;
+
+// functions
+console.log(addDecl(2, 3)); //this one got 5, defined
+function addDecl(a, b) {
+  return a + b;
+}
+
+// addExpr & addArrow are in temporary dead zone
+const addExpr = function (a, b) {
+  return a + b;
+};
+
+const addArrow = (a, b) => a + b;
+
+//Example
+// if (!numProducts) deleteShoppingCart();
+
+// var numProducts = 10; try not to use var, easy to have bug
+const numProducts = 10;
+
+function deleteShoppingCart() {
+  console.log('All products deleted!');
+}
+
+// another example
+var c = 1;
+let d = 2;
+const e = 3;
+
+console.log(c === window.c); //ture
+console.log(d === window.d); //false
+console.log(e === window.e); //false
