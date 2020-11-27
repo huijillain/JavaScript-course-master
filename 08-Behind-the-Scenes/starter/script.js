@@ -100,5 +100,37 @@ const matilda = {
 matilda.calcAge3 = sky.calcAge3;
 matilda.calcAge3(); // matilda is calling the method
 
-const f = sky.calcAge3;
-f(); // Typeerror, f() here is only a function
+// const f = sky.calcAge3;
+// f(); // Typeerror, f() here is only a function
+
+// new topic
+const jay = {
+  // this is not a block scope, this is an object, so they are still global scope / window object
+  firstName: 'Jay',
+  year: 1990,
+  calcAge4: function () {
+    console.log(this);
+    console.log(2037 - this.Year);
+  }, // an arrow function does not get this keyword
+  greet: () => console.log(`Hey ${this.firstName}`),
+}; // here this is undefined
+jay.greet();
+// the best practice never use arrow function as a method
+// can change "() =>" in line 115 to "function()"
+//check final 139 isMillenial = function section
+// inside a regular function, THIS KEYWORD is undefined
+// PAY attention to Solution 2
+
+//arguments keyword, does not use much in moden JavaScript
+const addExpr2 = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr2(2, 5);
+addExpr2(2, 5, 8, 12);
+
+var addArrow2 = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+addArrow2(2, 5, 8);
