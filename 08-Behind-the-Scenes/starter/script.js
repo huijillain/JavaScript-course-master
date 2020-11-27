@@ -67,3 +67,38 @@ const e = 3;
 console.log(c === window.c); //ture
 console.log(d === window.d); //false
 console.log(e === window.e); //false
+
+// console.log(this);
+
+const calcAge2 = function (birthYear) {
+  console.log(2020 - birthYear);
+  console.log(this); // undifined here
+};
+calcAge2(1990);
+
+const calcAgeArrow = birthYear => {
+  console.log(2020 - birthYear);
+  console.log(this); // window {} here
+};
+calcAgeArrow(1990);
+
+const sky = {
+  year: 1990,
+  calcAge3: function () {
+    console.log(this);
+    console.log(2037 - this.year); //use this keyword to referrence the object
+    //this keyword will point to the object that is calling the method
+    // this keyword is denamic
+  },
+};
+sky.calcAge3();
+
+const matilda = {
+  year: 2017, //a function is a value
+};
+
+matilda.calcAge3 = sky.calcAge3;
+matilda.calcAge3(); // matilda is calling the method
+
+const f = sky.calcAge3;
+f(); // Typeerror, f() here is only a function
