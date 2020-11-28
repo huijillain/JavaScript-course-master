@@ -129,8 +129,61 @@ const addExpr2 = function (a, b) {
 addExpr2(2, 5);
 addExpr2(2, 5, 8, 12);
 
-var addArrow2 = (a, b) => {
-  console.log(arguments);
-  return a + b;
+// var addArrow2 = (a, b) => {
+//   console.log(arguments);
+//   return a + b;
+// };
+// addArrow2(2, 5, 8);
+
+//Primitives vs. Objects/Reference Types
+// JavaScripts primitives are Number, String, Boolean, Undefined, Null, Symbol, BigInt, everything else are objects
+// Objects or reference types: object literal, arrays, functions, many more
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age);
+console.log(oldAge);
+
+const me2 = {
+  name: 'Kejing',
+  age: 25,
 };
-addArrow2(2, 5, 8);
+const friend = me2;
+friend.age = 27;
+console.log('Friend:', friend);
+console.log('Me', me2);
+
+// Primitive types
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+// Reference types
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage: ', jessica);
+console.log('After marriage: ', marriedJessica);
+
+// Copying objects
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2);
+jessicaCopy.lastName = 'Davis';
+
+// object.assign is shallow level, we did not talk about deep clone
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('Before marriage: ', jessica2);
+console.log('After marriage: ', jessicaCopy);
