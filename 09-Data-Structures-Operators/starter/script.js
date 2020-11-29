@@ -75,7 +75,96 @@
 // // console.log(p, q, r);
 // // answer is 8 9 1
 
-// 2, Destructuring Objects
+// // 2, Destructuring Objects
+// const restaurant = {
+//   // this is hardcode data, it is useful to set default data like lines 117-118
+//   name: 'Classico Italiano',
+//   location: 'Via Angelo Tavanti 23, Firenze, Italy',
+//   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+//   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+//   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+//   openingHours: {
+//     thu: {
+//       // object in an object
+//       open: 12,
+//       close: 22,
+//     },
+//     fri: {
+//       open: 11,
+//       close: 23,
+//     },
+//     sat: {
+//       open: 0, // Open 24 hours
+//       close: 24,
+//     },
+//   },
+
+//   order: function (starterIndex, mainIndex) {
+//     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+//   },
+
+//   orderDelivery: function ({
+//     starterIndex = 1,
+//     mainIndex = 0,
+//     time = '20:00',
+//     address,
+//   }) {
+//     console.log(
+//       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+//     );
+//   },
+// };
+
+// restaurant.orderDelivery({
+//   //call function above, passing in an object of option
+//   time: '22:30',
+//   address: 'Via del Sole, 21',
+//   mainIndex: 2,
+//   starterIndex: 2,
+// });
+
+// // If we need to write a function with lots of parameters, this is very useful when amounts of parameters increase.
+// restaurant.orderDelivery({
+//   address: 'Via del Sole, 21',
+//   starterIndex: 1,
+// });
+
+// const { name, openingHours, categories } = restaurant;
+// console.log(name, openingHours, categories);
+
+// const {
+//   name: restaurantName,
+//   openingHours: hours,
+//   categories: tags,
+// } = restaurant;
+// console.log(restaurantName, hours, tags);
+
+// // Default values
+// const { menu = [], starterMenu: starters = [] } = restaurant;
+// console.log(menu, starters);
+
+// // Mutating variables
+// let r = 111;
+// let q = 999;
+// const obj = { r: 23, q: 7, w: 14 };
+// //  { r, q } = obj;  // SyntaxErrow: unexpected token '=', {} at the beginning, JS expects a code block. Since we can not assign value yet, trick to trap it in () shwoing below.
+// ({ r, q } = obj);
+// console.log(r, q);
+
+// // Nested objects
+// const {
+//   fri: { open: o, close: c },
+// } = openingHours;
+// console.log(o, c);
+
+// // initially was code below
+// // const {
+// //   fri: { open, close },
+// // } = openingHours;
+// // console.log(open, close);
+
+// 3,
 const restaurant = {
   // this is hardcode data, it is useful to set default data like lines 117-118
   name: 'Classico Italiano',
@@ -116,50 +205,15 @@ const restaurant = {
   },
 };
 
-restaurant.orderDelivery({
-  //call function above, passing in an object of option
-  time: '22:30',
-  address: 'Via del Sole, 21',
-  mainIndex: 2,
-  starterIndex: 2,
-});
+const arr = [7, 8, 9];
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
 
-// If we need to write a function with lots of parameters, this is very useful when amounts of parameters increase.
-restaurant.orderDelivery({
-  address: 'Via del Sole, 21',
-  starterIndex: 1,
-});
+const newArr = [1, 2, ...arr]; // we can use spread operator whatever we otherwise write multiple values separated by comma
+console.log(newArr); // answer [1,2,7,8,9]
+console.log(...newArr); // answer 1, 2, 7, 8, 9
+// whenever we need the element of array individually, we use spread operator. That is useful when we write an array, and we need to pass multiple elements into a funtion.
 
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
-
-const {
-  name: restaurantName,
-  openingHours: hours,
-  categories: tags,
-} = restaurant;
-console.log(restaurantName, hours, tags);
-
-// Default values
-const { menu = [], starterMenu: starters = [] } = restaurant;
-console.log(menu, starters);
-
-// Mutating variables
-let r = 111;
-let q = 999;
-const obj = { r: 23, q: 7, w: 14 };
-//  { r, q } = obj;  // SyntaxErrow: unexpected token '=', {} at the beginning, JS expects a code block. Since we can not assign value yet, trick to trap it in () shwoing below.
-({ r, q } = obj);
-console.log(r, q);
-
-// Nested objects
-const {
-  fri: { open: o, close: c },
-} = openingHours;
-console.log(o, c);
-
-// initially was code below
-// const {
-//   fri: { open, close },
-// } = openingHours;
-// console.log(open, close);
+//add a new menu into menu by expending/adding one into array
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(newMenu);
