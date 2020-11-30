@@ -217,3 +217,10 @@ console.log(...newArr); // answer 1, 2, 7, 8, 9
 //add a new menu into menu by expending/adding one into array
 const newMenu = [...restaurant.mainMenu, 'Gnocci'];
 console.log(newMenu);
+
+// Copy aray
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// join 2 arrays mainMenu + StarterMenu
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+console.log(menu);
