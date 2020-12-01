@@ -347,3 +347,35 @@ add(...d);
 // The spread operators write VALUES separated by a comma. The rest pattern write VARIABLE NAMES separated by comma.
 restaurant1.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 restaurant1.orderPizza('mushrooms');
+
+console.log('----OR----');
+// && and ||
+// Use ANY data type, return ANY data type, short-circuiting
+console.log(3 || 'sky'); // 3
+console.log('' || 'sky'); // sky
+console.log(true || 0); // ture
+console.log(undefined || null); // null
+
+console.log(undefined || 0 || '' || 'Hello' || 23 || null); // Hello. Because it is the 1st truthy value in (), will skip falsy value.
+
+// restaurant.numGuests = 0; WHEN guest number is 0, answer is still 10 which is wrong. Answer for it will be later on.
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+
+console.log('----AND----');
+console.log(0 && 'sky'); // 0
+console.log(7 && 'sky'); // sky
+
+console.log('Hello' && 23 && null && 'sky'); // null. It stops at null as it is falsy value.
+
+if (restaurant1.orderPizza) {
+  restaurant1.orderPizza('Mushrooms', 'spinach');
+}
+
+restaurant1.orderPizza && restaurant1.orderPizza('mushrooms', 'spinach'); // First restaurant1.orderPizza is to check if it exists, 2nd is to add values in it.
+
+// OR operator will return the 1st truthy value or the last value if they are all falsy. line 357
+// AND operator will return the 1st falsy value or the last value if all of them are truthy.
