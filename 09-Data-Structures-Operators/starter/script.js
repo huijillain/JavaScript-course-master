@@ -301,6 +301,11 @@ const restaurant1 = {
       `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
     );
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
 
 // 1, Distructuring
@@ -337,3 +342,8 @@ add(8, 2, 5, 3, 2, 1, 4);
 
 const d = [23, 5, 7];
 add(...d);
+
+// The rest parameters serve all remaining unused parameters
+// The spread operators write VALUES separated by a comma. The rest pattern write VARIABLE NAMES separated by comma.
+restaurant1.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
+restaurant1.orderPizza('mushrooms');
