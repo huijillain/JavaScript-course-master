@@ -379,3 +379,12 @@ restaurant1.orderPizza && restaurant1.orderPizza('mushrooms', 'spinach'); // Fir
 
 // OR operator will return the 1st truthy value or the last value if they are all falsy. line 357
 // AND operator will return the 1st falsy value or the last value if all of them are truthy.
+
+// Error above, answer here using guestCorrect
+restaurant.numGuests = 0;
+const guests3 = restaurant.numGuests || 10;
+console.log(guests3);
+
+// Nullish: null and undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect);
