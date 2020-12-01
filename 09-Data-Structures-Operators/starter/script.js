@@ -203,6 +203,12 @@ const restaurant = {
       `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
     );
   },
+
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
 };
 
 const arr = [7, 8, 9];
@@ -224,3 +230,28 @@ const mainMenuCopy = [...restaurant.mainMenu];
 // join 2 arrays mainMenu + StarterMenu
 const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 console.log(menu);
+
+// Iterables: arrays, strings, maps, sets. Not objects
+const str = 'Misty';
+const letters = [...str, ' ', 'S.'];
+console.log(letters);
+// console.log(`${...str} Horward); // does not work because we can not put multiple value in {}
+
+const ingredients = [
+  // prompt("Let's make pasta! Ingredient 1?"),
+  // prompt('Ingredient 2?'),
+  // prompt('Ingredient 3'),
+];
+console.log(ingredients);
+
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]);
+restaurant.orderPasta(...ingredients);
+
+// Objects
+const newRestaurant = { founderedIn: 1990, ...restaurant, founder: 'Guiseppe' };
+console.log(newRestaurant);
+
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante roma';
+console.log(restaurantCopy.name);
+console.log(restaurant.name);
