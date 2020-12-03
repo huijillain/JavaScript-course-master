@@ -598,4 +598,38 @@ const restaurant3 = {
   //     `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
   //   );
   // },
+
+  orderPizza(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
 };
+
+// if (restaurant3.openingHours.mon)
+//   console.log(restaurant3.openingHours.mon.open);
+
+//These are two optional properties restaurant3.openingHours & restaurant3.openingHours.mon which we do not know if they exist beforehand. So we use if() to check first
+if (restaurant3.openingHours && restaurant3.openingHours.mon)
+  console.log(restaurant3.openingHours.mon.open);
+
+// WITH optional chaining
+console.log(restaurant3.openingHours.mon?.open); //undifined
+
+// Example
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  const open = restaurant3.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// Methods: We check if Method exist before we call it.
+console.log(restaurant3.order?.(0, 1) ?? 'Method does not exist.'); // exist as I worked on code on Thur.
+console.log(restaurant3.orderRisotto?.(0, 1) ?? 'Method does not exist.'); // does not exist as we never order Risotto
+
+// Arrays
+const users = [{ name: 'Sky', email: 'guestemail@order.com' }];
+console.log(users[0].name ?? 'User array empty');
+
+if (users.length > 0) console.log(users[0].name);
+else console.log('User array empty');
