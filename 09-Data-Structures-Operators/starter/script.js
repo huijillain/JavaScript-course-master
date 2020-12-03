@@ -485,7 +485,6 @@ team1 > team2 && console.log('Team 2 is more likely to win');
 
 // For-of Loop, can still use break or continue
 const restaurant2 = {
-  // this is hardcode data, it is useful to set default data like lines 117-118
   name: 'Classico Italiano',
   location: 'Via Angelo Tavanti 23, Firenze, Italy',
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
@@ -547,3 +546,56 @@ for (const [i, el] of menu.entries()) {
 }
 // console.log(menu.entries());
 console.log(...menu.entries());
+
+// Enhanced Object Literals
+const weekdays1 = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+const openingHours = {
+  [weekdays1[3]]: {
+    // object in an object
+    open: 12,
+    close: 22,
+  },
+  [weekdays1[4]]: {
+    open: 11,
+    close: 23,
+  },
+  sat: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
+const restaurant3 = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  // ES6 enhanced object literals, we can delete : function
+  openingHours,
+  // openingHours: openingHours,
+
+  order3(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+  // order3: function (starterIndex, mainIndex) {
+  //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  // },
+
+  orderDelivery3({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+  // orderDelivery3: function ({
+  //   starterIndex = 1,
+  //   mainIndex = 0,
+  //   time = '20:00',
+  //   address,
+  // }) {
+  //   console.log(
+  //     `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+  //   );
+  // },
+};
