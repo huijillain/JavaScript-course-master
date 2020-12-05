@@ -779,3 +779,40 @@ console.log(
 );
 
 console.log(new Set('skyjillain').size);
+
+// Map: is a data structure we use to map value to keys.
+// Data is stored in key value pairs in maps.
+// In maps, keys can has many types.
+// In sets, keys are always strings.
+const rest = new Map();
+rest.set('name', 'Classico Italiano');
+rest.set(1, 'Firenze, Italy');
+console.log(rest.set(2, 'Lisbon, Portugal'));
+
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :)')
+  .set(false, 'We are closed :(');
+
+console.log(rest.get('name'));
+console.log(rest.get(true));
+console.log(rest.get(1));
+
+const time = 8;
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+// Now check if map contains certain keys.
+console.log(rest.has('categories'));
+rest.delete(2);
+// rest.clear();
+const arr2 = [1, 2];
+rest.set([arr2, 'Test']);
+// rest.set([1, 2], 'Test'); //rest.set[1,2] is not the same as line 816, that is why we added line 810
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+console.log(rest.size);
+
+// console.log(rest.get([1, 2]));
+console.log(rest.get(arr2));
