@@ -854,3 +854,10 @@ console.log([...question]);
 console.log([...question.entries()]);
 console.log(question.keys()); // can use [...] or without
 console.log(questioin.values());
+
+// Which Data structure to use?
+// Sources of Data:
+// 1, From the program itself: Data writtren directly in source code (e.g. status messages)
+// 2, From the UI: Data input from the user or data written in DOM(e.g. tasks in todo app)
+// 3, From exteral sourses: Data fetched for example from web API(e.g. recipe objects) - Application Programming Interface
+// Based on Collection of Data, then to Data Structure. If they are simple list, use Arrays or Sets. If they are Key/Value pairs, use Objects or Maps
