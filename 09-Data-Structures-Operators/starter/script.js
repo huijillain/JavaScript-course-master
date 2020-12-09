@@ -1008,3 +1008,37 @@ const checkBaggage = function (items) {
 checkBaggage('I have a laptop, some food and a pocket knife');
 checkBaggage('Socks and camera');
 checkBaggage('Got some snacks and a gun for protection');
+
+// Working with strings - Split and join
+console.log('a+very+nice+string'.split('+'));
+console.log('Sky Jillain'.split(' '));
+
+const [firstName, lastName] = 'Sky Jillain'.split(' ');
+const newName = ['Mrs.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
+const capitalizedName = function (name) {
+  const names = name.split(' ');
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(' '));
+};
+
+capitalizedName('jessica ann smith davis');
+capitalizedName('jason jillain');
+
+// Padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, '+')); // 25 letters length with + at the front
+console.log('sky'.padStart(25, '+'));
+console.log(message.padStart(25, '+').padEnd(30, '+'));
+console.log('sky'.padStart(25, '+').padEnd(30, '+'));
+
+// credit cards
+const maskCreditCard = function (number) {
+  const string = number + '';
+};
