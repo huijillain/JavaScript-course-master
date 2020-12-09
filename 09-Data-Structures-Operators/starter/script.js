@@ -912,3 +912,35 @@ for (const [minute, event] of gameEvents) {
   const half = minute <= 45 ? 'FIRST' : 'SECOND';
   console.log(`[${half} HALF] ${minute}: ${event}`);
 }
+
+// Working with strings - Airline exercises
+const airline = 'TAP Air Canada';
+const plane = 'A320';
+
+console.log(plane[0]); // answer is A
+console.log(plane[1]); // answer is 3
+console.log(plane[2]); // asnwer is 2
+console.log('B737'[0]); // answer is B
+console.log(airline.indexOf('r')); // answer is 6
+console.log(airline.lastIndexOf('a')); // answer is 13, no difference of A or a. Not case sentive.
+console.log(airline.indexOf('Canada')); // answer is 8
+console.log(airline.indexOf('canada')); // answer is -1
+console.log(airline.slice(4)); // Beginning of 4 and the rest, answer is Air Canada
+console.log(airline.slice(4, 7)); // 4-6 NO 7, answer is Air
+console.log(airline.slice(0, airline.indexOf(' '))); // TAP
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // there was a space in front of Canada, that is why we add "+ 1"
+console.log(airline.slice(-2)); // the last 2 letters, answer is da
+console.log(1, -1); // from 1 to the last letter, answer is "AP Air Canada"
+
+const checkMiddleSeat = function (seat) {
+  // B & E are middle seats
+  const s = seat.slice(-1);
+  if (s === 'B' || s === 'E') console.log('You got the middle seat -(');
+  else console.log('You got lucky -)');
+};
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('jillain'));
+console.log(typeof new String('jillain')); // type is object
