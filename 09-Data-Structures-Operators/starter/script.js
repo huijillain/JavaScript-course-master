@@ -981,3 +981,30 @@ const announcement =
 
 // console.log(announcement.replace('door', 'gate'));
 console.log(announcement.replaceAll('door', 'gate'));
+
+// regular expression
+console.log(announcement.replace(/door/g, 'gate'));
+
+// Booleans
+const plane3 = 'Airbus A320neo';
+console.log(plane3.includes('A320')); // true
+console.log(plane3.includes('Boeing')); // false
+console.log(plane3.startsWith('Airb')); // true
+
+if (plane3.startsWith('Airbus') && plane.endsWith('neo')) {
+  console.log('Part of the NEW Airbus family');
+}
+
+// Practice exercise
+const checkBaggage = function (items) {
+  // change all toLowerCase first
+  const baggage = items.toLowerCase();
+  if (baggage.includes('knife') || baggage.includes('gun')) {
+    console.log('You are NOT allowed on board.');
+  } else {
+    console.log(' Welcome aboard!');
+  }
+};
+checkBaggage('I have a laptop, some food and a pocket knife');
+checkBaggage('Socks and camera');
+checkBaggage('Got some snacks and a gun for protection');
