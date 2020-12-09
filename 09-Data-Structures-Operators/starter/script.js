@@ -1041,4 +1041,20 @@ console.log('sky'.padStart(25, '+').padEnd(30, '+'));
 // credit cards
 const maskCreditCard = function (number) {
   const string = number + '';
+  // take the last 4 digitals here
+  const last = string.slice(-4);
+  return last.padStart(string.length, '*');
 };
+
+console.log(maskCreditCard(4500654367839900));
+console.log(maskCreditCard('3324358877'));
+
+// Repeat
+const message3 = 'Bad weather... All Departures Delayed...';
+console.log(message3.repeat(4));
+
+const planesInline = function (number) {
+  console.log(`There are ${number} planes in line ${'✈'.repeat(number)}`);
+};
+planesInline(5);
+planesInline(11);
