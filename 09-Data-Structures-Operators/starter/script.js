@@ -944,3 +944,40 @@ checkMiddleSeat('3E');
 
 console.log(new String('jillain'));
 console.log(typeof new String('jillain')); // type is object
+
+// Working with Strings - 2
+const airline1 = 'TAP Air Canada';
+
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+//Fix capitalization in name
+const passenger = 'sKy';
+const passengerLower = passenger.toLowerCase();
+const passengerCorrect =
+  passengerLower[0].toUpperCase() + passengerLower.slice(1); // the 1st letter will be upperCase, from [1] will be lowerCase
+console.log(passengerCorrect);
+
+// Comparing emails
+const email = 'service@digital4u.ca';
+const loginEmail = '  Service@Digital4U.ca \n';
+
+// const lowerEmail = loginEmail.toLowerCase();
+// // Delete white place and \n
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
+
+const normalizedEmail = loginEmail.toLowerCase().trim();
+console.log(normalizedEmail);
+// console.log(email === normalizedEmail);  // answer is true
+
+// replacing
+const priceGB = '£288,97';
+const priceUS = priceGB.replace('£', '$').replace(',', '.');
+console.log(priceUS);
+
+const announcement =
+  'All passengers come to boarding door 23. Boarding door 23!';
+
+// console.log(announcement.replace('door', 'gate'));
+console.log(announcement.replaceAll('door', 'gate'));
