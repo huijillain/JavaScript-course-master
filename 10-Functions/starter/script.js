@@ -25,3 +25,38 @@ createBooking('HL123');
 createBooking('HL123', 2, 800);
 createBooking('HL123', 3);
 createBooking('HL123', undefined, 985);
+
+// How passing arguments works: value vs. reference
+const flight = 'LH234';
+const sky = {
+  name: 'Sky Jillain',
+  passport: 8765432,
+};
+
+const checkIn = function (flightNum, passenger) {
+  flightNum = 'LH876';
+  passenger.name = 'Mr. ' + passenger.name;
+
+  if (passenger.passport === 8765432) {
+    alert('Checked in');
+  } else {
+    alert('Wrong passport!');
+  }
+};
+
+checkIn(flight, sky);
+console.log(flight);
+console.log(sky);
+
+// Is the same as doing...
+const flightNum = flight;
+const passenger = sky; // answer is 'Checked in'
+
+const newPassport = function (person) {
+  person.passport = Math.trunc(Math.random() * 1000000);
+};
+
+newPassport(sky); // now we pass person.passport as well
+checkIn(flight, sky); // answer now is 'wrong passport' due to new passport info
+
+// JavaScript can ONLY pass by value.
