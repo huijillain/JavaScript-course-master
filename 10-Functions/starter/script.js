@@ -1,5 +1,5 @@
 'use strict';
-
+// FUNCTION -1
 const bookings = [];
 //  // ES5 way of adding parameters
 // const createBooking = function (flightNum, numPassengers, price) {
@@ -60,3 +60,24 @@ newPassport(sky); // now we pass person.passport as well
 checkIn(flight, sky); // answer now is 'wrong passport' due to new passport info
 
 // JavaScript can ONLY pass by value.
+
+// FUNTION -2
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+// This is higher-order function
+const transformer = function (str, fn) {
+  console.log(`Original string: ${str}`);
+  console.log(`Transformed string: ${fn(str)}`);
+
+  console.log(`Transformed by: ${fn.name}`);
+};
+
+transformer('JavaScript is the best!', upperFirstWord);
+transformer('JavaScript is the best!', oneWord);
